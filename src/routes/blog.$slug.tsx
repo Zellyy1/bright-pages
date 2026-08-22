@@ -59,7 +59,7 @@ function PostNotFound() {
 }
 
 function BlogPost() {
-  const post = Route.useLoaderData();
+  const post = Route.useLoaderData() as Post;
 
   return (
     <main className="mx-auto max-w-3xl px-4 py-12">
