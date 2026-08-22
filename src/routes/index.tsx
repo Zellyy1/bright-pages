@@ -30,13 +30,15 @@ export const Route = createFileRoute("/")({
 function Home() {
   return (
     <main className="mx-auto max-w-3xl px-4 py-12">
-      <ProfileHeader />
+      <div className="animate-rise">
+        <ProfileHeader />
+      </div>
 
       <section className="mt-12">
-        <h2 className="text-sm font-medium uppercase tracking-wider text-muted-foreground">
+        <h2 className="animate-rise rise-delay-1 text-sm font-medium uppercase tracking-wider text-muted-foreground">
           Blogs
         </h2>
-        <div className="mt-3 divide-y divide-border border-y border-border">
+        <div className="animate-rise rise-delay-2 mt-3 divide-y divide-border border-y border-border">
           {posts.map((post) => (
             <PostCard key={post.id} post={post} />
           ))}
