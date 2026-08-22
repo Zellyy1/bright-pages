@@ -1,12 +1,12 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 
-import { getPostBySlug } from "@/data/posts";
+import { getPostBySlug, type Post } from "@/data/posts";
 import { ArrowLeft } from "lucide-react";
 
 export const Route = createFileRoute("/blog/$slug")({
   component: BlogPost,
-  head: ({ params, loaderData }) => {
-    const post = loaderData;
+  head: ({ params }: { params: { slug: string } }) => {
+    const post = getPostBySlug(params.slug);
     if (!post) {
       return {
         meta: [
@@ -28,7 +28,7 @@ export const Route = createFileRoute("/blog/$slug")({
       links: [{ rel: "canonical", href: `/blog/${params.slug}` }],
     };
   },
-  loader: ({ params }) => {
+  loader: ({ params }): Post => {
     const post = getPostBySlug(params.slug);
     if (!post) {
       throw notFound();
@@ -59,7 +59,7 @@ function PostNotFound() {
 }
 
 function BlogPost() {
-  const post = Route.useLoaderData();
+  const post = Route.useLoaderData() as Post;
 
   return (
     <main className="mx-auto max-w-3xl px-4 py-12">

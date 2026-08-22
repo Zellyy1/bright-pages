@@ -9,18 +9,17 @@ export function PostCard({ post, className }: { post: Post; className?: string }
       <Link
         to="/blog/$slug"
         params={{ slug: post.slug }}
-        className="block rounded-lg border border-border bg-card p-5 transition-colors hover:bg-accent"
+        className="block rounded-md px-2 py-3 transition-colors hover:bg-accent"
       >
-        <div className="flex items-center gap-2 text-xs text-muted-foreground">
-          <span className="rounded-full bg-secondary px-2 py-0.5 font-medium text-secondary-foreground">
-            {post.category}
-          </span>
-          <span>{post.date}</span>
+        <div className="flex items-baseline justify-between gap-4">
+          <h3 className="truncate text-sm font-medium text-foreground">{post.title}</h3>
+          <span className="shrink-0 font-mono text-xs text-muted-foreground">{post.date}</span>
         </div>
-        <h2 className="mt-3 text-xl font-semibold tracking-tight text-card-foreground transition-colors group-hover:text-foreground">
-          {post.title}
-        </h2>
-        <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{post.excerpt}</p>
+        <p className="mt-1 truncate text-xs text-muted-foreground">
+          <span className="font-mono uppercase tracking-wide">{post.category}</span>
+          <span className="mx-1.5">·</span>
+          {post.excerpt}
+        </p>
       </Link>
     </article>
   );
