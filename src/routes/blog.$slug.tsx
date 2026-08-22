@@ -5,8 +5,8 @@ import { ArrowLeft } from "lucide-react";
 
 export const Route = createFileRoute("/blog/$slug")({
   component: BlogPost,
-  head: ({ params, loaderData }) => {
-    const post = loaderData;
+  head: ({ params }: { params: { slug: string } }) => {
+    const post = getPostBySlug(params.slug);
     if (!post) {
       return {
         meta: [
