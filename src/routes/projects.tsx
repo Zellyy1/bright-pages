@@ -27,18 +27,18 @@ export const Route = createFileRoute("/projects")({
 function ProjectsPage() {
   return (
     <main className="mx-auto max-w-3xl px-4 py-12">
-      <h1 className="text-2xl font-semibold tracking-tight text-foreground">Projects</h1>
-      <p className="mt-2 text-sm text-muted-foreground">
+      <h1 className="animate-rise text-2xl font-semibold tracking-tight text-foreground">Projects</h1>
+      <p className="animate-rise rise-delay-1 mt-2 text-sm text-muted-foreground">
         Small things I have built, mostly to scratch my own itch.
       </p>
 
-      <div className="mt-8 divide-y divide-border border-y border-border">
+      <div className="animate-rise rise-delay-2 mt-8 divide-y divide-border border-y border-border">
         {projects.map((project) => (
           <article key={project.id}>
             <a
               href={project.href ?? "#"}
               target={project.href ? "_blank" : undefined}
-              rel={project.href ? "noreferrer" : undefined}
+              rel={project.href ? "noopener noreferrer" : undefined}
               className="group block rounded-md px-2 py-3 transition-colors hover:bg-accent"
             >
               <div className="flex items-baseline justify-between gap-4">
