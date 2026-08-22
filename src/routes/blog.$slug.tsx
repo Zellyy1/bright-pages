@@ -1,6 +1,6 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 
-import { getPostBySlug } from "@/data/posts";
+import { getPostBySlug, type Post } from "@/data/posts";
 import { ArrowLeft } from "lucide-react";
 
 export const Route = createFileRoute("/blog/$slug")({
@@ -28,7 +28,7 @@ export const Route = createFileRoute("/blog/$slug")({
       links: [{ rel: "canonical", href: `/blog/${params.slug}` }],
     };
   },
-  loader: ({ params }) => {
+  loader: ({ params }): Post => {
     const post = getPostBySlug(params.slug);
     if (!post) {
       throw notFound();
