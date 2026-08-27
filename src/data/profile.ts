@@ -6,6 +6,7 @@ export type ProfileLink = {
 export type Profile = {
   name: string;
   role: string;
+  location: string;
   description: string;
   links: ProfileLink[];
 };
@@ -13,6 +14,7 @@ export type Profile = {
 export const profile: Profile = {
   name: "Premnath",
   role: "Frontend engineer & writer",
+  location: "Kolkata, India · open to work",
   description:
     "I build web interfaces and write about the things I learn along the way — React, CSS, and design systems. This is my corner of the internet for short, practical notes and side projects.",
   links: [

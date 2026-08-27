@@ -1,28 +1,47 @@
 import { Link } from "@tanstack/react-router";
 
 import { ThemeToggle } from "@/components/ThemeToggle";
+import { site } from "@/data/site";
 import { cn } from "@/lib/utils";
 
 const navLinkClass =
-  "text-sm text-muted-foreground transition-colors hover:text-foreground";
+  "relative py-1 text-sm text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-sm";
+
+const activeLinkClass =
+  "text-foreground after:absolute after:inset-x-0 after:-bottom-0.5 after:h-px after:bg-foreground";
 
 export function Header({ className }: { className?: string }) {
   return (
-    <header className={cn("border-b border-border", className)}>
-      <div className="mx-auto flex max-w-3xl items-center justify-between px-4 py-4">
-        <nav className="flex items-center gap-5">
-          <Link to="/" className={navLinkClass} activeProps={{ className: "text-foreground font-medium" }}>
-            Blogs
-          </Link>
-          <Link
-            to="/projects"
-            className={navLinkClass}
-            activeProps={{ className: "text-foreground font-medium" }}
-          >
-            Projects
-          </Link>
-        </nav>
-        <ThemeToggle />
+    <header
+      className={cn(
+        "sticky top-0 z-40 border-b border-border bg-background/80 backdrop-blur-md",
+        className
+      )}
+    >
+      <div className="mx-auto flex max-w-3xl items-center justify-between px-5 py-3.5">
+        <Link to="/" className="font-display text-base tracking-tight text-foreground">
+          {site.name}
+        </Link>
+        <div className="flex items-center gap-5">
+          <nav className="flex items-center gap-5">
+            <Link
+              to="/"
+              className={navLinkClass}
+              activeOptions={{ exact: true }}
+              activeProps={{ className: activeLinkClass }}
+            >
+              Blogs
+            </Link>
+            <Link
+              to="/projects"
+              className={navLinkClass}
+              activeProps={{ className: activeLinkClass }}
+            >
+              Projects
+            </Link>
+          </nav>
+          <ThemeToggle />
+        </div>
       </div>
     </header>
   );
