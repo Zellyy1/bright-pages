@@ -13,13 +13,13 @@ export type Profile = {
 
 export const profile: Profile = {
   name: "Premnath",
-  role: "Frontend engineer & writer",
-  location: "Kolkata, India · open to work",
+  role: "Student & writer",
+  location: "Tamil Nadu, India · open to work",
   description:
-    "I build web interfaces and write about the things I learn along the way — React, CSS, and design systems. This is my corner of the internet for short, practical notes and side projects.",
+    "I explore new tech and write about the things I learn along the way — Python, Java and design systems. This is my corner of the internet for experimenting stuffs and side projects.",
   links: [
-    { label: "GitHub", href: "https://github.com" },
-    { label: "X", href: "https://x.com" },
-    { label: "Email", href: "mailto:hello@example.com" },
+    { label: "GitHub", href: "https://github.com/Zellyy1" },
+    { label: "X", href: "https://www.youtube.com/watch?v=dQw4w9WgXcQ" },
+    { label: "Email", href: "mailto:premnath4th@gmail.com" },
   ],
 };
