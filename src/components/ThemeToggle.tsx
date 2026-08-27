@@ -41,11 +41,39 @@ export function ThemeToggle({ className }: { className?: string }) {
     return () => media.removeEventListener("change", listener);
   }, []);
 
-  const toggle = () => {
+  const toggle = (event: React.MouseEvent<HTMLButtonElement>) => {
     const next = theme === "dark" ? "light" : "dark";
-    document.documentElement.classList.toggle("dark", next === "dark");
-    window.localStorage.setItem("theme", next);
-    setTheme(next);
+    const applyTheme = () => {
+      document.documentElement.classList.toggle("dark", next === "dark");
+      window.localStorage.setItem("theme", next);
+      setTheme(next);
+    };
+
+    const doc = document as Document & {
+      startViewTransition?: (update: () => void) => { ready: Promise<void> };
+    };
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    if (!doc.startViewTransition || reduceMotion) {
+      applyTheme();
+      return;
+    }
+
+    // Circle grows from the center of the toggle button.
+    const rect = event.currentTarget.getBoundingClientRect();
+    const x = rect.left + rect.width / 2;
+    const y = rect.top + rect.height / 2;
+    const radius = Math.hypot(
+      Math.max(x, window.innerWidth - x),
+      Math.max(y, window.innerHeight - y)
+    );
+
+    const root = document.documentElement;
+    root.style.setProperty("--theme-x", `${x}px`);
+    root.style.setProperty("--theme-y", `${y}px`);
+    root.style.setProperty("--theme-radius", `${radius}px`);
+
+    doc.startViewTransition(applyTheme);
   };
 
   // Avoid rendering a different icon on the server than the client.
