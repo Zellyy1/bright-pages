@@ -143,6 +143,11 @@
 
   html {
     scroll-behavior: smooth;
+    transition: color 250ms ease, background-color 250ms ease, border-color 250ms ease;
+  }
+
+  html * {
+    transition: color 250ms ease, background-color 250ms ease, border-color 250ms ease;
   }
 
   body {
@@ -151,6 +156,7 @@
     font-family: var(--font-sans);
   }
 }
+
 
 /* Page entrance animation */
 @keyframes rise-in {
