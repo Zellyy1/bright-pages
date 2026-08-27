@@ -19,7 +19,7 @@ export const profile: Profile = {
     "I explore new tech and write about the things I learn along the way — Python, Java and design systems. This is my corner of the internet for experimenting stuffs and side projects.",
   links: [
     { label: "GitHub", href: "https://github.com/Zellyy1" },
-    { label: "X", href: "https://www.youtube.com/watch?v=dQw4w9WgXcQ" },
+    { label: "X", href: "https://tinyurl.com/mu2x3exb" },
     { label: "Email", href: "mailto:premnath4th@gmail.com" },
   ],
 };
