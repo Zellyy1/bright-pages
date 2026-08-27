@@ -18,10 +18,8 @@ export function Header({ className }: { className?: string }) {
         className
       )}
     >
-      <div className="mx-auto flex max-w-3xl items-center justify-between px-5 py-3.5">
-        <Link to="/" className="font-display text-base tracking-tight text-foreground">
-          {site.name}
-        </Link>
+    <div className="mx-auto flex max-w-3xl items-center justify-end px-5 py-3.5">
+
         <div className="flex items-center gap-5">
           <nav className="flex items-center gap-5">
             <Link
