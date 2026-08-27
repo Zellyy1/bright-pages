@@ -1,8 +1,8 @@
 import { Link } from "@tanstack/react-router";
 
 import { ThemeToggle } from "@/components/ThemeToggle";
-import { site } from "@/data/site";
 import { cn } from "@/lib/utils";
+
 
 const navLinkClass =
   "relative py-1 text-sm text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-sm";
