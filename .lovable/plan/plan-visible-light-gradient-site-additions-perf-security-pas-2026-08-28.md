@@ -22,6 +22,8 @@ Ordered by how well they fit a minimal, clean personal site:
 
 I'd start with 1 + 2 + 6, since they directly reflect your hobbies and keep the visual language unchanged. Tell me which ones you want and I'll fold them into the build.
 
+yes add 1 + 2 + 6 (for the anime + games shelf extract the lists from [anilist.co](http://anilist.co) for anime and steam for games)
+
 ## 3. Performance and security checks
 
 - **Security scan** — run the project security scanner and report findings; the site is fully static with no backend, no auth and no user input, so the expected surface is limited to external links, the served PGP file and response headers.
