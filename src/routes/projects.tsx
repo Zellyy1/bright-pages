@@ -21,7 +21,7 @@ export const Route = createFileRoute("/projects")({
 function ProjectsPage() {
   return (
     <PageContainer>
-      <h1 className="animate-rise font-display text-3xl tracking-tight text-foreground">
+      <h1 className="animate-rise font-display text-3xl font-semibold tracking-tight text-foreground">
         Projects
       </h1>
       <p className="animate-rise rise-delay-1 mt-2 text-sm text-muted-foreground">
