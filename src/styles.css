@@ -110,7 +110,7 @@
     scroll-behavior: smooth;
   }
   
-  lovable-badge {
+  #lovable-badge {
     display: none !important;
   }
 
