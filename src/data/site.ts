@@ -3,7 +3,7 @@ export const site = {
   url: "https://prem-folio.lovable.app",
   tagline: "Blogs, notes and projects",
   description:
-    "Personal site of Premnath: short, practical notes on React, CSS, full-stack development, and design systems.",
+    "Personal site of Premnath.",
 } as const;
 
 type MetaInput = {
