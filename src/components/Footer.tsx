@@ -2,6 +2,8 @@ import { Link } from "@tanstack/react-router";
 
 import { profile } from "@/data/profile";
 import { site } from "@/data/site";
+import { linkProps } from "@/lib/links";
+
 
 export function Footer() {
   return (
