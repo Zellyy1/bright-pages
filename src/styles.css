@@ -109,6 +109,10 @@
   html {
     scroll-behavior: smooth;
   }
+  
+  lovable-badge {
+    display: none !important;
+  }
 
   body {
     background-color: var(--background);
