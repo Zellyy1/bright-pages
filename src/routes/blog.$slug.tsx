@@ -62,7 +62,7 @@ export const Route = createFileRoute("/blog/$slug")({
 function PostNotFound() {
   return (
     <PageContainer className="text-center">
-      <h1 className="font-display text-3xl tracking-tight text-foreground">Post not found</h1>
+      <h1 className="font-display text-3xl font-semibold tracking-tight text-foreground">Post not found</h1>
       <p className="mt-2 text-sm text-muted-foreground">
         The article you are looking for does not exist or has been removed.
       </p>
@@ -100,7 +100,7 @@ function BlogPost() {
           <span>{readingTime(postBody(post))}</span>
         </div>
 
-        <h1 className="mt-4 font-display text-4xl leading-tight tracking-tight text-foreground">
+        <h1 className="mt-4 font-display text-4xl font-semibold leading-tight tracking-tight text-foreground">
           {post.title}
         </h1>
         <p className="mt-4 max-w-[68ch] text-lg leading-relaxed text-muted-foreground">

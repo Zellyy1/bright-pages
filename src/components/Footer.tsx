@@ -2,6 +2,8 @@ import { Link } from "@tanstack/react-router";
 
 import { profile } from "@/data/profile";
 import { site } from "@/data/site";
+import { linkProps } from "@/lib/links";
+
 
 export function Footer() {
   return (
@@ -17,20 +19,16 @@ export function Footer() {
           <Link to="/projects" className="transition-colors hover:text-foreground">
             Projects
           </Link>
-          {profile.links.map((link) => {
-            const external = !link.href.startsWith("mailto:");
-            return (
-              <a
-                key={link.label}
-                href={link.href}
-                target={external ? "_blank" : undefined}
-                rel={external ? "noopener noreferrer" : undefined}
-                className="transition-colors hover:text-foreground"
-              >
-                {link.label}
-              </a>
-            );
-          })}
+          {profile.links.map((link) => (
+            <a
+              key={link.label}
+              href={link.href}
+              {...linkProps(link.href)}
+              className="transition-colors hover:text-foreground"
+            >
+              {link.label}
+            </a>
+          ))}
         </nav>
       </div>
     </footer>
