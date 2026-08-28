@@ -1,4 +1,4 @@
-# Premnath — Personal Blog & Projects
+# Personal Blog & Projects
 
 A small, fast personal site: short technical notes, a projects list, and a light/dark theme toggle. No CMS, no database — all content is typed data in the repo.
 
