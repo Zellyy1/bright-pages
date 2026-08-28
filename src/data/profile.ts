@@ -9,6 +9,10 @@ export type Profile = {
   location: string;
   description: string;
   links: ProfileLink[];
+  pgp: {
+    href: string;
+    fingerprint: string;
+  };
 };
 
 export const profile: Profile = {
@@ -21,5 +25,10 @@ export const profile: Profile = {
     { label: "GitHub", href: "https://github.com/Zellyy1" },
     { label: "X", href: "https://tinyurl.com/mu2x3exb" },
     { label: "Email", href: "mailto:premnath4th@gmail.com" },
+    { label: "PGP", href: "/pgp.asc" },
   ],
+  pgp: {
+    href: "/pgp.asc",
+    fingerprint: "B482 0ACE 5C27 2151 AA24  FE8F 48F6 EB4D 1757 5C19",
+  },
 };
