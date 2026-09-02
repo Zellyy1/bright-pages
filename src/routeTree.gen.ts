@@ -10,7 +10,10 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as NowRouteImport } from './routes/now'
+import { Route as PlayingRouteImport } from './routes/playing'
 import { Route as ProjectsRouteImport } from './routes/projects'
+import { Route as WatchingRouteImport } from './routes/watching'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 
 const IndexRoute = IndexRouteImport.update({
@@ -18,9 +21,24 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const NowRoute = NowRouteImport.update({
+  id: '/now',
+  path: '/now',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PlayingRoute = PlayingRouteImport.update({
+  id: '/playing',
+  path: '/playing',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ProjectsRoute = ProjectsRouteImport.update({
   id: '/projects',
   path: '/projects',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WatchingRoute = WatchingRouteImport.update({
+  id: '/watching',
+  path: '/watching',
   getParentRoute: () => rootRouteImport,
 } as any)
 const BlogSlugRoute = BlogSlugRouteImport.update({
@@ -31,31 +49,51 @@ const BlogSlugRoute = BlogSlugRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/now': typeof NowRoute
+  '/playing': typeof PlayingRoute
   '/projects': typeof ProjectsRoute
+  '/watching': typeof WatchingRoute
   '/blog/$slug': typeof BlogSlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/now': typeof NowRoute
+  '/playing': typeof PlayingRoute
   '/projects': typeof ProjectsRoute
+  '/watching': typeof WatchingRoute
   '/blog/$slug': typeof BlogSlugRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/now': typeof NowRoute
+  '/playing': typeof PlayingRoute
   '/projects': typeof ProjectsRoute
+  '/watching': typeof WatchingRoute
   '/blog/$slug': typeof BlogSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/projects' | '/blog/$slug'
+  fullPaths:
+    '/' | '/now' | '/playing' | '/projects' | '/watching' | '/blog/$slug'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/projects' | '/blog/$slug'
-  id: '__root__' | '/' | '/projects' | '/blog/$slug'
+  to: '/' | '/now' | '/playing' | '/projects' | '/watching' | '/blog/$slug'
+  id:
+    | '__root__'
+    | '/'
+    | '/now'
+    | '/playing'
+    | '/projects'
+    | '/watching'
+    | '/blog/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  NowRoute: typeof NowRoute
+  PlayingRoute: typeof PlayingRoute
   ProjectsRoute: typeof ProjectsRoute
+  WatchingRoute: typeof WatchingRoute
   BlogSlugRoute: typeof BlogSlugRoute
 }
 
@@ -68,11 +106,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/now': {
+      id: '/now'
+      path: '/now'
+      fullPath: '/now'
+      preLoaderRoute: typeof NowRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/playing': {
+      id: '/playing'
+      path: '/playing'
+      fullPath: '/playing'
+      preLoaderRoute: typeof PlayingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/projects': {
       id: '/projects'
       path: '/projects'
       fullPath: '/projects'
       preLoaderRoute: typeof ProjectsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/watching': {
+      id: '/watching'
+      path: '/watching'
+      fullPath: '/watching'
+      preLoaderRoute: typeof WatchingRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/blog/$slug': {
@@ -87,7 +146,10 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  NowRoute: NowRoute,
+  PlayingRoute: PlayingRoute,
   ProjectsRoute: ProjectsRoute,
+  WatchingRoute: WatchingRoute,
   BlogSlugRoute: BlogSlugRoute,
 }
 export const routeTree = rootRouteImport
