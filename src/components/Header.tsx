@@ -9,13 +9,13 @@ const navLinkClass =
 
 const activeLinkClass = "text-foreground nav-active";
 
-const links = [
+const links: { to: string; label: string; exact?: boolean }[] = [
   { to: "/", label: "Blogs", exact: true },
   { to: "/projects", label: "Projects" },
   { to: "/watching", label: "Watching" },
   { to: "/playing", label: "Playing" },
   { to: "/now", label: "Now" },
-] as const;
+];
 
 export function Header({ className }: { className?: string }) {
   return (
@@ -32,7 +32,7 @@ export function Header({ className }: { className?: string }) {
             {links.map((link) => (
               <Link
                 key={link.to}
-                to={link.to}
+                to={link.to as never}
                 className={navLinkClass}
                 {...(link.exact ? { activeOptions: { exact: true } } : {})}
                 activeProps={{ className: activeLinkClass }}
