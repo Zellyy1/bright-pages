@@ -19,6 +19,15 @@ export function Footer() {
           <Link to="/projects" className="transition-colors hover:text-foreground">
             Projects
           </Link>
+          <Link to="/watching" className="transition-colors hover:text-foreground">
+            Watching
+          </Link>
+          <Link to="/playing" className="transition-colors hover:text-foreground">
+            Playing
+          </Link>
+          <Link to="/now" className="transition-colors hover:text-foreground">
+            Now
+          </Link>
           {profile.links.map((link) => (
             <a
               key={link.label}
